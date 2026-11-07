@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sleepy Clouds ☁️</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&family=Quicksand:wght@500;700&display=swap">
+<style>
+:root{--bg:#fdf4ef;--bg2:#ece6fa;--bg3:#dcebf8;--ink:#4a4162;--mute:#7b7395;--card:rgba(255,255,255,.72);--line:rgba(140,120,190,.18);--acc:#a996e6;--acc2:#f3bfd2;--hd:rgba(253,244,239,.82);
+--t1:#dcebf8;--t2:#f3d9e6;--t3:#e4dcf7;--t4:#f7e6c8;--t5:#d6ebdd;--sh:0 10px 30px rgba(150,125,200,.16);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root:not([data-theme="light"]){}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1e1a33;--bg2:#2b2448;--bg3:#1f2a4a;--ink:#f0ebfb;--mute:#b5abd4;--card:rgba(58,50,98,.6);--line:rgba(200,185,255,.16);--acc:#b7a6f0;--hd:rgba(30,26,51,.82);--t1:#2b3e63;--t2:#4a3158;--t3:#3d3470;--t4:#52432f;--t5:#2e4a41;--sh:0 10px 30px rgba(0,0,0,.3)}}
+:root[data-theme="dark"]{--bg:#1e1a33;--bg2:#2b2448;--bg3:#1f2a4a;--ink:#f0ebfb;--mute:#b5abd4;--card:rgba(58,50,98,.6);--line:rgba(200,185,255,.16);--acc:#b7a6f0;--hd:rgba(30,26,51,.82);--t1:#2b3e63;--t2:#4a3158;--t3:#3d3470;--t4:#52432f;--t5:#2e4a41;--sh:0 10px 30px rgba(0,0,0,.3)}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100%;font-family:Nunito,system-ui,sans-serif;color:var(--ink);background:linear-gradient(170deg,var(--bg2),var(--bg) 45%,var(--bg3));background-attachment:fixed;overflow-x:hidden;line-height:1.6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--hd);z-index:10}
+.cloud{position:fixed;left:-420px;z-index:0;width:var(--w);height:calc(var(--w)*.34);border-radius:999px;background:#fff;opacity:var(--o,.95);filter:drop-shadow(0 10px 14px rgba(150,125,200,.28));animation:drift var(--d) linear infinite;animation-delay:var(--l);pointer-events:none}.cloud::before,.cloud::after{content:"";position:absolute;background:inherit;border-radius:50%}.cloud::before{width:46%;height:135%;left:14%;top:-62%}.cloud::after{width:36%;height:100%;right:14%;top:-38%}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .cloud{background:#51479a;filter:drop-shadow(0 8px 12px rgba(0,0,0,.35))}}
+:root[data-theme="dark"] .cloud{background:#51479a;filter:drop-shadow(0 8px 12px rgba(0,0,0,.35))}
+
+@keyframes drift{to{transform:translateX(calc(100vw + 900px))}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1!important;transform:none!important}.cloud{left:10%}}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--hd);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.bar{max-width:1080px;margin:auto;display:flex;align-items:center;gap:12px;padding:10px 16px}
+.logo{font-family:Quicksand,sans-serif;font-weight:700;letter-spacing:.08em;white-space:nowrap;color:var(--ink);text-decoration:none}
+nav{display:flex;gap:4px;overflow-x:auto;flex:1;scrollbar-width:none}nav::-webkit-scrollbar{display:none}
+nav a{padding:7px 14px;border-radius:999px;text-decoration:none;color:var(--mute);font-weight:600;font-size:.92rem;white-space:nowrap;transition:.2s}
+nav a:hover{background:var(--card)}nav a.on{background:var(--acc);color:#fff}
+.btn{display:inline-block;padding:11px 24px;border-radius:999px;background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;font-weight:800;text-decoration:none;border:0;cursor:pointer;box-shadow:var(--sh);font:inherit;font-weight:800;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}.btn.sm{padding:7px 16px;font-size:.9rem}
+#th{border:1px solid var(--line);background:var(--card);border-radius:999px;width:36px;height:36px;cursor:pointer;font-size:1rem}
+main{position:relative;z-index:1;max-width:1080px;margin:auto;padding:36px 16px 20px}
+section{display:none;animation:in .5s ease}section.on{display:block}
+@keyframes in{from{opacity:0;transform:translateY(10px)}}
+.eye{color:var(--acc);font-weight:800;letter-spacing:.18em;font-size:.8rem}
+h1{font-family:Quicksand,sans-serif;font-size:clamp(2rem,6vw,3.4rem);line-height:1.15;margin:.2em 0 .4em}
+h2{font-family:Quicksand,sans-serif;margin:1.4em 0 .4em}
+p.lead{color:var(--mute);font-size:1.1rem;max-width:620px}
+.hero{text-align:center;padding:50px 0 30px}.hero p.lead{margin:0 auto 24px}
+.hero .big{font-size:4.5rem;animation:bob 5s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-10px)}}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;margin-top:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:20px;box-shadow:var(--sh);backdrop-filter:blur(8px)}
+.card h3{margin:.2em 0;font-family:Quicksand,sans-serif}.card p{margin:.3em 0;color:var(--mute)}
+.ic{font-size:1.8rem}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.tools input,.tools select{padding:10px 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;min-width:0}
+.tools input{flex:1;min-width:160px}
+.role{background:var(--t);border:1px solid var(--line);border-radius:26px;padding:18px;display:flex;flex-direction:column;gap:6px;box-shadow:var(--sh);transition:transform .25s}
+.role:hover{transform:translateY(-4px)}
+.role small{color:var(--mute);font-weight:700}.role h3{margin:0;font-size:1.15rem}.role .pr{font-size:1.4rem;font-weight:800;font-family:Quicksand,sans-serif}
+.role .row{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.note{margin-top:22px;padding:16px 20px;border-radius:20px;background:var(--card);border:1px dashed var(--acc);color:var(--mute)}
+details{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:14px 20px;margin:10px 0}
+summary{cursor:pointer;font-weight:700}details p{margin:.6em 0 0;color:var(--mute)}
+.tm{text-align:center}.tm .av{width:64px;height:64px;border-radius:50%;margin:0 auto 8px;display:grid;place-items:center;font-size:1.8rem;background:linear-gradient(135deg,var(--acc2),var(--acc))}
+.tm small{color:var(--acc);font-weight:800}
+.empty{opacity:.55}
+footer{position:relative;z-index:1;text-align:center;padding:40px 16px 30px;color:var(--mute)}
+footer h3{font-family:Quicksand,sans-serif;color:var(--ink);margin:0 0 4px}footer a{color:var(--acc)}
+.fl{display:flex;gap:6px 14px;justify-content:center;flex-wrap:wrap;margin:14px 0;font-size:.9rem}
+.st{position:fixed;z-index:0;width:var(--s);height:var(--s);border-radius:50%;background:var(--acc);animation:tw var(--d) ease-in-out infinite;pointer-events:none}@keyframes tw{0%,100%{opacity:.1;transform:scale(.6)}50%{opacity:.9;transform:scale(1.3)}}.zz{position:fixed;z-index:0;bottom:-40px;pointer-events:none;color:var(--acc);font-weight:800;opacity:0;animation:rise var(--d) ease-in forwards}@keyframes rise{10%{opacity:.7}to{opacity:0;transform:translate(var(--x),-105vh) rotate(25deg)}}.rv{opacity:0;transform:translateY(26px) scale(.95);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}.rv.vis{opacity:1;transform:none}.card.vis:hover,.role.vis:hover{transform:translateY(-6px) rotate(-.7deg)}.ic{display:inline-block;animation:bob 4s ease-in-out infinite}.grid>*:nth-child(2n) .ic{animation-delay:-1.3s}.grid>*:nth-child(3n) .ic{animation-delay:-2.4s}.btn{position:relative;overflow:hidden}.btn::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);transform:translateX(-130%);animation:shn 4.5s ease-in-out infinite}@keyframes shn{60%,100%{transform:translateX(130%)}}h1{background:linear-gradient(90deg,var(--ink),var(--acc),var(--acc2),var(--ink));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gr 10s linear infinite}@keyframes gr{to{background-position:-300% 0}}.logo{display:inline-block;animation:bob 5s ease-in-out infinite}
+summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;user-select:none}summary::-webkit-details-marker{display:none}summary::after{content:"+";flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:1.3rem;line-height:1;color:#fff;background:linear-gradient(135deg,var(--acc),var(--acc2));transition:transform .45s cubic-bezier(.3,1.5,.5,1)}details.op summary::after{transform:rotate(135deg)}details.rv{transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1),box-shadow .4s,border-color .4s}details:hover{border-color:var(--acc)}details.op{box-shadow:0 14px 34px rgba(169,150,230,.32);border-color:var(--acc)}details.op summary{color:var(--acc)}details.op p{animation:pp .55s .12s cubic-bezier(.2,.8,.2,1) both}@keyframes pp{from{opacity:0;transform:translateY(-10px)}}
+</style>
+</head>
+<body>
+<div class="cloud" style="--w:300px;top:5%;--d:90s;--l:-30s"></div><div class="cloud" style="--w:180px;top:14%;--d:60s;--l:-5s;--o:.8"></div><div class="cloud" style="--w:380px;top:24%;--d:120s;--l:-80s"></div><div class="cloud" style="--w:220px;top:36%;--d:75s;--l:-50s;--o:.85"></div><div class="cloud" style="--w:320px;top:48%;--d:100s;--l:-15s"></div><div class="cloud" style="--w:160px;top:58%;--d:55s;--l:-40s;--o:.75"></div><div class="cloud" style="--w:420px;top:68%;--d:130s;--l:-100s"></div><div class="cloud" style="--w:240px;top:78%;--d:80s;--l:-60s;--o:.9"></div><div class="cloud" style="--w:200px;top:88%;--d:65s;--l:-10s;--o:.8"></div><div class="cloud" style="--w:340px;top:94%;--d:110s;--l:-70s"></div>
+<header><div class="bar">
+<a class="logo" href="#home">☁️ SLEEPY CLOUDS</a>
+<nav id="nav"></nav>
+<button id="th" title="Тема" aria-label="Сменить тему">🌙</button>
+<a class="btn sm" href="https://discord.gg/MmbF3JQ9fG" target="_blank" rel="noopener">В Discord</a>
+</div></header>
+<main>
+<section id="home"><div class="hero"><div class="big">☁️</div><div class="eye">01 / SLEEPY CLOUDS</div>
+<h1>Место, где сны встречаются с реальностью</h1>
+<p class="lead">Уютное Discord-сообщество Dreamcore, Weirdcore и Backrooms. Устраивайся поудобнее, бери плед и оставайся с нами.</p>
+<a class="btn" href="https://discord.gg/MmbF3JQ9fG" target="_blank" rel="noopener">Заглянуть во сне</a> <a class="btn sm" href="#shop" style="background:var(--card);color:var(--ink)">Выбрать роль</a></div>
+<div class="grid">
+<div class="card"><div class="ic">🛏️</div><h3>Уютная атмосфера</h3><p>Мягкое общение, где никто не торопится.</p></div>
+<div class="card"><div class="ic">🌙</div><h3>Роли настроения</h3><p>От первого облака до хранителя снов.</p></div>
+<div class="card"><div class="ic">🎀</div><h3>Своя экономика</h3><p>Валюта, задания и магазин внутри сервера.</p></div>
+<div class="card"><div class="ic">🎉</div><h3>Мероприятия</h3><p>Совместные ночи, игры и сюрпризы.</p></div></div></section>
+
+<section id="about"><div class="eye">02 / О СЕРВЕРЕ</div><h1>Маленький мир по ту сторону привычного</h1>
+<p class="lead">Sleepy Clouds — Discord-сообщество для тех, кто любит мягкую эстетику снов, странные места и ностальгию.</p>
+<div class="grid">
+<div class="card"><div class="ic">☁️</div><h3>Dreamcore</h3><p>Размытые воспоминания и сны наяву.</p></div>
+<div class="card"><div class="ic">🪞</div><h3>Weirdcore</h3><p>Чуть странно, но всегда по-доброму.</p></div>
+<div class="card"><div class="ic">🚪</div><h3>Backrooms</h3><p>Пустые коридоры и тихий гул лампочек.</p></div></div>
+<p class="note">Неофициальное сообщество. Не связано с Discord Inc.</p></section>
+
+<section id="shop"><div class="eye">03 / МАГАЗИН</div><h1>Выбери своё настроение</h1>
+<p class="lead">От первого облака до хранителя снов. Кнопка «Купить» откроет DonationAlerts; получение роли уточняется у администрации.</p>
+<div class="tools"><input id="q" placeholder="Поиск роли…" aria-label="Поиск роли"><select id="cat" aria-label="Категория"></select><button class="btn sm" id="rs">Сбросить</button></div>
+<div class="grid" id="roles"></div>
+<p class="note">После оплаты свяжитесь с администрацией сервера в Discord для уточнения получения роли.</p></section>
+
+<section id="economy"><div class="eye">04 / ЭКОНОМИКА</div><h1>Маленькая экономика большого сна</h1>
+<p class="lead">Внутренняя валюта — часть жизни сообщества. Действующие команды и условия находятся в Discord.</p>
+<div class="grid">
+<div class="card"><div class="ic">💰</div><h3>Баланс</h3><p>Посмотри свой баланс на сервере. Нужную команду подскажет команда сообщества.</p></div>
+<div class="card"><div class="ic">✨</div><h3>Получение валюты</h3><p>Узнай в Discord, какие способы доступны сейчас.</p></div>
+<div class="card"><div class="ic">🧺</div><h3>Работа и задания</h3><p>Условия и список заданий уточняй на сервере.</p></div>
+<div class="card"><div class="ic">🛍️</div><h3>Покупки в магазине</h3><p>Сравни роли в каталоге и обратись в Discord за порядком покупки.</p></div>
+<div class="card"><div class="ic">🏆</div><h3>Таблица лидеров</h3><p>Актуальный рейтинг доступен на сервере.</p></div></div>
+<p class="note">Способы начисления, награды и команды могут меняться. Перед покупкой или заданием проверь информацию в Discord.</p>
+<p><a class="btn" href="https://discord.gg/MmbF3JQ9fG" target="_blank" rel="noopener">Узнать об экономике</a></p></section>
+
+<section id="events"><div class="eye">05 / МЕРОПРИЯТИЯ</div><h1>Ночи, которые хочется вспомнить</h1>
+<p class="lead">Совместные посиделки, игры и конкурсы. Расписание всегда актуально в Discord.</p>
+<div class="grid">
+<div class="card"><div class="ic">🎬</div><h3>Киноночи</h3><p>Смотрим вместе под пледом.</p></div>
+<div class="card"><div class="ic">🎮</div><h3>Игровые вечера</h3><p>Играем и болтаем в голосовых.</p></div>
+<div class="card"><div class="ic">🎁</div><h3>Конкурсы</h3><p>Призы, сюрпризы и приятные награды.</p></div></div>
+<p class="note">Как участвовать: следи за анонсами на сервере и заходи в нужный канал.</p></section>
+
+<section id="team"><div class="eye">06 / КОМАНДА</div><h1>Те, кто бережёт этот сон</h1>
+<p class="lead">Для связи найди участника по имени пользователя в Discord.</p><div class="grid" id="tm"></div>
+<p class="note">Не публикуй личные данные и дождись ответа администрации.</p></section>
+
+<section id="rules"><div class="eye">07 / ПРАВИЛА</div><h1>Береги атмосферу</h1>
+<p class="lead">Нажми на пункт, чтобы раскрыть его.</p><div id="rl"></div>
+<p><a class="btn" href="https://discord.gg/MmbF3JQ9fG" target="_blank" rel="noopener">Прочитать правила в Discord</a></p></section>
+
+<section id="faq"><div class="eye">08 / FAQ</div><h1>Перед тем как уснуть</h1>
+<p class="lead">Ответы на вопросы, с которых обычно начинается знакомство.</p>
+<details><summary>Как попасть на сервер?</summary><p>Нажми «В Discord» на любой странице и присоединись по приглашению.</p></details>
+<details><summary>Как получить валюту?</summary><p>Актуальные способы смотри в Discord, они могут меняться.</p></details>
+<details><summary>Как купить роль?</summary><p>Выбери роль в магазине и нажми «Купить», откроется DonationAlerts. После оплаты свяжись с администрацией в Discord.</p></details>
+<details><summary>Где посмотреть баланс?</summary><p>На сервере. Нужную команду и канал подскажет команда сообщества.</p></details>
+<details><summary>Как участвовать в мероприятиях?</summary><p>Следи за анонсами в Discord.</p></details>
+<details><summary>К кому обратиться за помощью?</summary><p>К команде сервера, контакты на вкладке «Команда».</p></details>
+<p><a class="btn" href="https://discord.gg/MmbF3JQ9fG" target="_blank" rel="noopener">Остались вопросы? В Discord</a></p></section>
+</main>
+<footer><div style="font-size:2rem">☁️</div><h3>Ты не потерялся. Ты просто во сне.</h3>
+<div>Sleepy Clouds ☁️ · маленький мир по ту сторону привычного.</div>
+<div class="fl" id="fl"></div>
+<a href="https://discord.gg/MmbF3JQ9fG" target="_blank" rel="noopener">Встретимся в Discord</a>
+<div style="margin-top:10px;font-size:.85rem">Dreamcore / Weirdcore / Backrooms · Неофициальное сообщество. Не связано с Discord Inc.</div></footer>
+<script>
+var T=[["home","Главная"],["about","О сервере"],["shop","Магазин"],["economy","Экономика"],["events","Мероприятия"],["team","Команда"],["rules","Правила"],["faq","FAQ"]];
+var nav=document.getElementById("nav"),fl=document.getElementById("fl");
+T.forEach(function(t){nav.insertAdjacentHTML("beforeend",'<a href="#'+t[0]+'" data-r="'+t[0]+'">'+t[1]+'</a>');fl.insertAdjacentHTML("beforeend",'<a href="#'+t[0]+'">'+t[1]+'</a>')});
+function route(){var h=(location.hash||"#home").slice(1);if(!T.some(function(t){return t[0]===h}))h="home";
+document.querySelectorAll("section").forEach(function(s){s.classList.toggle("on",s.id===h)});
+document.querySelectorAll("nav a").forEach(function(a){a.classList.toggle("on",a.dataset.r===h)});
+var a=nav.querySelector(".on");if(a&&a.scrollIntoView)a.scrollIntoView({inline:"center",block:"nearest"});window.scrollTo(0,0)}
+window.addEventListener("hashchange",route);route();
+var R=[["Обычные",1,"🫧 Cloudy",99],["Обычные",1,"🌙 Moonlight",149],["Обычные",1,"💤 Sleepy",179],["Обычные",1,"🌸 Dreamy",199],["Обычные",1,"🩵 Blue Hour",229],
+["Редкие",2,"☁️ Dreamcore",299],["Редкие",2,"🪞 Weirdcore",349],["Редкие",2,"🪽 Angelcore",399],["Редкие",2,"🎀 Pastel Dream",449],["Редкие",2,"🚪 Backrooms",499],
+["Особые",3,"🧸 Nostalgia",549],["Особые",3,"🌫️ Liminal",599],["Особые",3,"🌌 Dreamscape",649],["Особые",3,"🪐 Cosmic",699],["Особые",3,"💤 Lucid Dreamer",799],
+["Элитные",4,"🗝️ Dream Keeper",899],["Элитные",4,"🦢 Ethereal",999],["Элитные",4,"🌑 Void",1099],["Элитные",4,"🌠 Dreamwalker",1299],["Элитные",4,"👑 Dream Royal",1499],["Элитные",4,"『♕』ᴠɪᴘ",1799],
+["Дополнительно",5,"Custom Role",999]];
+var cats=["Все категории","Обычные","Редкие","Особые","Элитные","Дополнительно"],cat=document.getElementById("cat"),q=document.getElementById("q"),box=document.getElementById("roles");
+cat.innerHTML=cats.map(function(c){return"<option>"+c+"</option>"}).join("");
+function draw(){var s=q.value.trim().toLowerCase(),c=cat.value;var l=R.filter(function(r){return(c===cats[0]||r[0]===c)&&r[2].toLowerCase().indexOf(s)>-1});
+box.innerHTML=l.length?l.map(function(r){return'<div class="role" style="--t:var(--t'+r[1]+')"><small>'+r[0]+'</small><h3>'+r[2]+'</h3><p style="margin:0;color:var(--mute);font-size:.9rem">Условия и возможности роли уточняй на сервере.</p><div class="row"><span class="pr">'+r[3].toLocaleString("ru-RU")+' ₽</span><a class="btn sm" target="_blank" rel="noopener" href="https://www.donationalerts.com/r/ryka_max">Купить</a></div></div>'}).join(""):'<p class="lead">Ничего не нашлось, попробуй другое слово.</p>'}
+q.oninput=draw;cat.onchange=draw;document.getElementById("rs").onclick=function(){q.value="";cat.selectedIndex=0;draw()};draw();
+var M=[["❤️","♡рЫка♡","Создатель","@ryka_max"],["☁️","дыня","Зам. создателя","@nimisulid"],["🌙","","Куратор",""],["⭐","httpsROOTfirst","Высший админ","@google76756"],["☁️","prosto_kana","Админ","@prosto_kana"],["☁️","MoonOfDeath","Админ","@dedinside1"],["🪙","","Экономист",""],["❀","Lyganskiy_Moon ARZ RP","Модератор","@sty1ka"],["❀","синеглазка","Модератор","@vixlast"],["✧","","Пр. менеджер",""]];
+document.getElementById("tm").innerHTML=M.map(function(m){var e=!m[1];return'<div class="card tm'+(e?" empty":"")+'"><div class="av">'+m[0]+'</div><small>'+m[2]+'</small><h3>'+(e?"Вакантно":m[1].replace(/</g,"&lt;"))+'</h3><p>'+(e?"Пока нет участников":m[3])+'</p></div>'}).join("");
+var RU=[["1. 🪽 Основные правила",["1.1 Уважение к участникам|Запрещены оскорбления, унижения, травля, намеренные провокации и токсичное поведение. Наказание: мут от 30 минут до 24 часов.","1.2 Оскорбления родных","1.3 Дискриминация","1.4 Неподчинение администрации","1.5 Обход наказаний"]],
+["2. ☁️ Текстовые каналы",["2.1 Спам и флуд","2.2 Капс и раздражающие сообщения","2.3 Оффтоп","2.4 Реклама","2.5 Подозрительные ссылки и файлы","2.6 Запрещённый контент","2.7 Спам упоминаниями","2.8 Личные данные"]],
+["3. 🌙 Голосовые каналы",["3.1 Уважение в голосовых чатах","3.2 Шум и микрофон","3.3 Саундпад и музыка","3.4 Оскорбления и конфликты","3.5 Создание голосовых каналов"]]];
+document.getElementById("rl").innerHTML=RU.map(function(g){return"<h2>"+g[0]+"</h2>"+g[1].map(function(r){var p=r.split("|");return"<details><summary>"+p[0]+"</summary><p>"+(p[1]||"Полный текст и наказание за нарушение смотри в Discord.")+"</p></details>"}).join("")}).join("");
+var io=window.IntersectionObserver?new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add("vis");io.unobserve(x.target)}})},{threshold:.1}):null;
+function rv(){document.querySelectorAll(".card,.role,details").forEach(function(el){if(el.dataset.rv)return;el.dataset.rv=1;if(!io)return;var i=Array.prototype.indexOf.call(el.parentNode.children,el);el.style.transitionDelay=(i%8)*70+"ms";el.classList.add("rv");io.observe(el)})}
+rv();new MutationObserver(rv).observe(box,{childList:true});
+for(var i=0;i<26;i++){var s=document.createElement("i");s.className="st";s.style.cssText="--s:"+(3+Math.random()*5)+"px;--d:"+(2+Math.random()*4)+"s;left:"+Math.random()*100+"%;top:"+Math.random()*100+"%;animation-delay:-"+Math.random()*5+"s";document.body.appendChild(s)}
+if(!matchMedia("(prefers-reduced-motion:reduce)").matches){var Z=["z","Z","✦","💤","☁️","✧"];setInterval(function(){var z=document.createElement("span");z.className="zz";z.textContent=Z[Math.floor(Math.random()*Z.length)];z.style.cssText="left:"+Math.random()*95+"%;font-size:"+(14+Math.random()*18)+"px;--d:"+(9+Math.random()*6)+"s;--x:"+(Math.random()*120-60)+"px";document.body.appendChild(z);setTimeout(function(){z.remove()},16000)},1400)}
+document.querySelectorAll("details").forEach(function(d){var s=d.querySelector("summary");s.addEventListener("click",function(e){e.preventDefault();if(d._b)return;var op=d.open;if(matchMedia("(prefers-reduced-motion:reduce)").matches){d.open=!op;d.classList.toggle("op",!op);return}d._b=1;d.style.overflow="hidden";var st=d.offsetHeight,en;if(op){d.classList.remove("op");en=s.offsetHeight+30}else{d.open=true;d.classList.add("op");en=d.offsetHeight}var a=d.animate([{height:st+"px"},{height:en+"px"}],{duration:op?320:480,easing:"cubic-bezier(.2,.8,.2,1)"});a.onfinish=a.oncancel=function(){d.open=!op;d.style.overflow="";d._b=0}})});
+var th=document.getElementById("th"),rt=document.documentElement;
+th.onclick=function(){var d=rt.dataset.theme?rt.dataset.theme==="dark":matchMedia("(prefers-color-scheme:dark)").matches;rt.dataset.theme=d?"light":"dark";th.textContent=d?"🌙":"☀️"};
+</script>
+</body>
+</html>
